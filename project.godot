@@ -1,0 +1,35 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[  ]
+_global_script_class_icons={
+
+}
+
+[application]
+
+config/name="LittleEscapeVR"
+run/main_scene="res://rooms/bedroom.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+GlobalGame="*res://common/singletons/globalGame.gd"
+GlobalItems="*res://common/singletons/globalItems.gd"
+GlobalPlayer="*res://common/singletons/globalPlayer.gd"
+GlobalRoom="*res://common/singletons/globalRoom.gd"
+
+[gdnative]
+
+singletons=[ "res://addons/godot-openvr/godot_openvr.gdnlib" ]
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
