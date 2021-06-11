@@ -1,0 +1,53 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://models/livingroom/cabinetTelevision.tscn" type="PackedScene" id=1]
+[ext_resource path="res://models/livingroom/tableCoffee.tscn" type="PackedScene" id=2]
+[ext_resource path="res://models/livingroom/chairCushion.tscn" type="PackedScene" id=3]
+[ext_resource path="res://models/livingroom/tableCloth.tscn" type="PackedScene" id=4]
+[ext_resource path="res://models/livingroom/television.tscn" type="PackedScene" id=5]
+[ext_resource path="res://models/livingroom/loungeSofaCorner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://models/livingroom/loungeSofa.tscn" type="PackedScene" id=7]
+[ext_resource path="res://models/livingroom/chess_board.tscn" type="PackedScene" id=8]
+[ext_resource path="res://models/livingroom/remoteControl.tscn" type="PackedScene" id=9]
+[ext_resource path="res://rooms/livingroom.gd" type="Script" id=10]
+
+[node name="livingroom" type="Spatial"]
+script = ExtResource( 10 )
+
+[node name="cabinetTelevision" parent="." instance=ExtResource( 1 )]
+transform = Transform( -2.99979, 0, 0.0353942, 0, 3, 0, -0.0353942, 0, -2.99979, 10.353, 0, -2.27068 )
+
+[node name="television" parent="cabinetTelevision" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.409119, 0.300979, 0.11888 )
+
+[node name="loungeSofaCorner" parent="." instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 10.443, 0, 5.252 )
+
+[node name="loungeSofa" parent="." instance=ExtResource( 7 )]
+transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 7.81645, 0, 4.08913 )
+
+[node name="tableCoffee" parent="." instance=ExtResource( 2 )]
+transform = Transform( -3, 0, 2.62268e-07, 0, 3, 0, -2.62268e-07, 0, -3, 9.69596, 0, 5.49228 )
+
+[node name="chess_board" parent="tableCoffee" instance=ExtResource( 8 )]
+transform = Transform( 0.0145696, 0, 0.00231724, 0, 0.00752956, 0, -0.00231724, 0, 0.0145696, -0.258579, 0.236698, 0.124908 )
+
+[node name="remoteControl" parent="tableCoffee" instance=ExtResource( 9 )]
+transform = Transform( 0.0187192, 0, 0.0175675, 0, 0.0288493, 0, -0.0175675, 0, 0.0187192, 0.0521905, 0.242768, 0.149338 )
+
+[node name="tableCloth" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7546, 0, -1.14123 )
+
+[node name="chairCushion" parent="tableCloth" instance=ExtResource( 3 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0.159231, 0, 1.82771 )
+
+[node name="chairCushion3" parent="tableCloth" instance=ExtResource( 3 )]
+transform = Transform( -3, 0, -2.62268e-07, 0, 3, 0, 2.62268e-07, 0, -3, 0.940908, 0, -0.913215 )
+
+[node name="chairCushion4" parent="tableCloth" instance=ExtResource( 3 )]
+transform = Transform( -3, 0, -2.62268e-07, 0, 3, 0, 2.62268e-07, 0, -3, 2.21417, 0, -0.892648 )
+
+[node name="chairCushion2" parent="tableCloth" instance=ExtResource( 3 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 1.44884, 0, 1.82771 )
+[connection signal="gotoChessBoardZoom" from="tableCoffee/chess_board" to="." method="_on_chess_board_gotoChessBoardZoom"]
+[connection signal="gotoRemoteControlZoom" from="tableCoffee/remoteControl" to="." method="_on_remoteControl_gotoRemoteControlZoom"]

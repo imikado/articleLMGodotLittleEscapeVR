@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://ui/inventory.gd" type="Script" id=1]
+[ext_resource path="res://models/bedroom/postit.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ui/inventory/case.tscn" type="PackedScene" id=3]
+[ext_resource path="res://models/bedroom/paper.tscn" type="PackedScene" id=4]
+[ext_resource path="res://models/bedroom/bedroom_key.tscn" type="PackedScene" id=5]
+[ext_resource path="res://game_env.tres" type="Environment" id=6]
+
+[node name="inventory" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.133455 )
+script = ExtResource( 1 )
+
+[node name="items" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.00730419, 0, 0.0241957 )
+
+[node name="postit" parent="items" instance=ExtResource( 3 )]
+visible = false
+
+[node name="postit" parent="items/postit" instance=ExtResource( 2 )]
+transform = Transform( 0.659443, 0, 0, 0, 0.659444, 0, 0, 0, 0.859713, 0, 1.54446, 0 )
+
+[node name="paper" parent="items" instance=ExtResource( 3 )]
+visible = false
+
+[node name="paper" parent="items/paper" instance=ExtResource( 4 )]
+transform = Transform( 0.450189, 0, 0, 0, 1, 0, 0, 0, 0.450189, -0.437979, 1.07649, 0.444775 )
+
+[node name="bedroom_key" parent="items" instance=ExtResource( 3 )]
+
+[node name="Cube" parent="items/bedroom_key" instance=ExtResource( 5 )]
+transform = Transform( 0.123211, 0, -0.0563273, 0, 0.0516344, 0, 0.0695607, 0, 0.123211, -0.495342, 1.16628, -0.389479 )
+
+[node name="ARVROrigin" type="ARVROrigin" parent="."]
+
+[node name="ARVRCamera" type="ARVRCamera" parent="ARVROrigin"]
+environment = ExtResource( 6 )

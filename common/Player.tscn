@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://common/player/ARVROrigin.gd" type="Script" id=1]
 [ext_resource path="res://common/player/Player.gd" type="Script" id=2]
+[ext_resource path="res://game_env.tres" type="Environment" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
 
@@ -10,20 +11,22 @@
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 2 )
 
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 0.29766, 0, 0, 0, -4.31221e-08, -0.986517, 0, 0.296906, -1.29782e-08, 0, 1.20916, 0 )
+shape = SubResource( 1 )
+
 [node name="ARVROrigin" type="ARVROrigin" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.86519, 0 )
 script = ExtResource( 1 )
 
 [node name="ARVRCamera" type="ARVRCamera" parent="ARVROrigin"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.47685, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.43768, 0 )
+environment = ExtResource( 3 )
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 0.710833, 0, 0, 0, -3.37004e-08, -0.770974, 0, 0.710833, -3.10715e-08, 0, 1.20916, 0 )
-shape = SubResource( 1 )
+[node name="contact" type="Area" parent="ARVROrigin"]
 
-[node name="contact" type="Area" parent="."]
-
-[node name="CollisionShape" type="CollisionShape" parent="contact"]
+[node name="CollisionShape" type="CollisionShape" parent="ARVROrigin/contact"]
 transform = Transform( 0.701018, 0, 0, 0, 1, 0, 0, 0, 0.35084, 0, 0.996376, -0.438474 )
 shape = SubResource( 2 )
-[connection signal="body_entered" from="contact" to="." method="_on_contact_body_entered"]
-[connection signal="body_exited" from="contact" to="." method="_on_contact_body_exited"]
+[connection signal="body_entered" from="ARVROrigin/contact" to="." method="_on_contact_body_entered"]
+[connection signal="body_exited" from="ARVROrigin/contact" to="." method="_on_contact_body_exited"]

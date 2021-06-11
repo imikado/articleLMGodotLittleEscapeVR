@@ -9,6 +9,8 @@ viewport_path = NodePath("Viewport")
 
 [sub_resource type="SpatialMaterial" id=3]
 resource_local_to_scene = true
+flags_transparent = true
+albedo_color = Color( 1, 1, 1, 0.752941 )
 albedo_texture = SubResource( 2 )
 
 [node name="info" type="Spatial"]
@@ -34,6 +36,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="Viewport/Panel"]
 margin_right = 200.0
 margin_bottom = 200.0
+custom_colors/font_color = Color( 0.992157, 0.992157, 0.996078, 1 )
 text = "test
 test
 test"
@@ -43,3 +46,7 @@ autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.47
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

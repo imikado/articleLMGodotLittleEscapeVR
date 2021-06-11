@@ -1,5 +1,7 @@
 extends KinematicBody
 
+signal gotoInventory
+
 const SPEED= 160
 const ROTATE_SPEED=80
 const GRAVITY=10
@@ -7,6 +9,12 @@ const GRAVITY=10
 var vel = Vector3()
 
 var nearObject = null
+
+func getCameraPosition():
+	return global_transform.basis
+
+func loadCameraPosition(position_):
+	global_transform.basis=position_
 
 func _physics_process(delta):
 	var dir = Vector3()
@@ -34,12 +42,15 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("ui_accept"):
 		if nearObject && nearObject.has_method("action"):
-			if nearObject.canRetrieveItem():
+			if nearObject.has_method("canRetrieveItem") && nearObject.canRetrieveItem():
 				var item=nearObject.getItem()
 				GlobalPlayer.addItem(item)
 				return
 
 			nearObject.action()
+	
+	if Input.is_action_just_pressed("ui_cancel"):
+		emit_signal("gotoInventory")
 
 func _on_contact_body_entered(body):
 	if body.has_method('displayInfo'):

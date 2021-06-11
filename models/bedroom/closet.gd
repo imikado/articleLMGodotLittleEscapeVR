@@ -1,13 +1,46 @@
 extends "res://common/abstracts/furniture.gd"
 
+
+signal gotoClosetZoom
+
 func _ready():
 	defaultProps={
-		"state":CLOSED
+		"state":CLOSED,
+		"locked":true
 	}
+	
+func zoom():
+	$info.visible=false
+	
+func goUp():
+	$doorLeft/padlock.goUp()
+
+func goDown():
+	$doorLeft/padlock.goDown()
+
+func goLeft():
+	$doorLeft/padlock.goLeft()
+
+func goRight():
+	$doorLeft/padlock.goRight()
+	
+func isSecretCode():
+	return $doorLeft/padlock.isCodeCorrect()
+
+func unlock():
+	props.locked=false
+	$doorLeft/padlock.open()
+	saveProps()
+	
+func isLocked():
+	return props.locked
+
 	
 func refreshState():
 	if props.state==OPENED:
 		openDoors()
+	if props.locked==false:
+		$doorLeft/padlock.open()
 		
 func refreshItem():
 	$bedroom_key.visible=false
@@ -25,20 +58,26 @@ func closeDoors():
 
 
 func displayInfo():
+
 	if props.state==CLOSED:
-		showInfo("Ceci est une armoire.\n Voulez-vous l'ouvrir ?")
+		showInfo("Voulez-vous ouvrir ?")
 	else:
 		if props.item==GlobalItems.ID.BEDROOM_KEY:
 			showInfo("Voulez-vous prendre la clé ?")
 		else:
-			showInfo("Ceci est une armoire.\n Voulez-vous la fermer ?")
+			showInfo("Voulez-vous la fermer ?")
 
 
 func action():
 	if props.state==CLOSED:
-		openDoors()
 		
-		props.state=OPENED
+		if props.locked:
+			
+			emit_signal("gotoClosetZoom")
+		else:
+			openDoors()
+			
+			props.state=OPENED
 	else:
 		closeDoors()
 		

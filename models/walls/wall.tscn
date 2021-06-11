@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://ressources/metalDark.material" type="Material" id=1]
 [ext_resource path="res://ressources/wood.material" type="Material" id=2]
-[ext_resource path="res://ressources/_defaultMat.material" type="Material" id=3]
+[ext_resource path="res://materials/wall.material" type="Material" id=3]
+
 
 [sub_resource type="ArrayMesh" id=1]
 surfaces/0 = {
@@ -38,7 +38,7 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 6,
-"material": ExtResource( 1 ),
+"material": ExtResource( 3 ),
 "name": "metalDark",
 "primitive": 4,
 "skeleton_aabb": [  ],

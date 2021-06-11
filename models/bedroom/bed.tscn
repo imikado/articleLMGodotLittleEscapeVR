@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://ressources/metal.material" type="Material" id=1]
-[ext_resource path="res://ressources/carpet.material" type="Material" id=2]
+[ext_resource path="res://materials/metal.tres" type="Material" id=1]
+[ext_resource path="res://materials/red_cloth.tres" type="Material" id=2]
 [ext_resource path="res://ressources/carpetWhite.material" type="Material" id=3]
-[ext_resource path="res://ressources/wood.material" type="Material" id=4]
+[ext_resource path="res://materials/wood.tres" type="Material" id=4]
+[ext_resource path="res://materials/cloth.tres" type="Material" id=5]
 
 [sub_resource type="ArrayMesh" id=1]
 surfaces/0 = {
@@ -13,7 +14,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 24,
-"material": ExtResource( 3 ),
+"material": ExtResource( 5 ),
 "name": "carpetWhite",
 "primitive": 4,
 "skeleton_aabb": [  ],
@@ -70,7 +71,7 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 102,
-"material": ExtResource( 3 ),
+"material": ExtResource( 1 ),
 "name": "carpetWhite",
 "primitive": 4,
 "skeleton_aabb": [  ],

@@ -1,0 +1,103 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://models/doors/door.tscn" type="PackedScene" id=1]
+[ext_resource path="res://models/walls/wallDoorWay.tscn" type="PackedScene" id=2]
+[ext_resource path="res://models/walls/wall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://rooms/bedroom.tscn" type="PackedScene" id=4]
+[ext_resource path="res://common/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://materials/cloth.tres" type="Material" id=6]
+[ext_resource path="res://flat.gd" type="Script" id=7]
+[ext_resource path="res://rooms/livingroom.tscn" type="PackedScene" id=8]
+
+[sub_resource type="PlaneMesh" id=1]
+material = ExtResource( 6 )
+
+[sub_resource type="ConcavePolygonShape" id=2]
+data = PoolVector3Array( 1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1 )
+
+[node name="flat" type="Spatial"]
+script = ExtResource( 7 )
+
+[node name="walls" type="Spatial" parent="."]
+
+[node name="wall" parent="walls" instance=ExtResource( 3 )]
+transform = Transform( 26.0323, 0, 0, 0, 3, 0, 0, 0, 3, -3.89588, 0, -3.80203 )
+
+[node name="wall3" parent="walls" instance=ExtResource( 3 )]
+transform = Transform( -8.43157, 0, -2.87921e-07, 0, 3, 0, 6.71436e-07, 0, -3, 3.90737, 0, 2.5981 )
+
+[node name="wall4" parent="walls" instance=ExtResource( 3 )]
+transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 4, 0, -4.285 )
+
+[node name="wall5" parent="walls" instance=ExtResource( 3 )]
+transform = Transform( 2.26494e-07, 0, -3, 0, 3, 0, 3, 0, 2.26494e-07, 4.01912, -0.0158319, 0.475967 )
+
+[node name="wall6" parent="walls" instance=ExtResource( 3 )]
+transform = Transform( -25.3936, 0, -8.67139e-07, 0, 3, 0, 6.71436e-07, 0, -3, 20.7063, 0, 8.82986 )
+
+[node name="wall2" parent="walls" instance=ExtResource( 3 )]
+transform = Transform( 2.26494e-07, 0, 3, 0, 3, 0, -12.8169, 0, 9.67652e-07, -4.00422, 0, 8.98604 )
+
+[node name="wall7" parent="walls" instance=ExtResource( 3 )]
+transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 4, 0, 0.595552 )
+
+[node name="wall8" parent="walls" instance=ExtResource( 3 )]
+transform = Transform( 2.26494e-07, 0, -3, 0, 3, 0, 3, 0, 2.26494e-07, 4, 0, 5.87882 )
+
+[node name="wall9" parent="walls" instance=ExtResource( 3 )]
+transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 8.23907, 0, -3.60141e-07, 16.6682, -9.53674e-07, -4.26654 )
+
+[node name="wall10" parent="walls" instance=ExtResource( 3 )]
+transform = Transform( 2.26494e-07, 0, -3, 0, 3, 0, 3, 0, 2.26494e-07, 16.6852, 0, 6.31723 )
+
+[node name="wall11" parent="walls" instance=ExtResource( 3 )]
+transform = Transform( 2.26494e-07, 0, 3, 0, 3, 0, -12.8169, 0, 9.67652e-07, 20.5557, 0, 8.98604 )
+
+[node name="ground" type="MeshInstance" parent="."]
+transform = Transform( 13.1573, 0, 0, 0, 1, 0, 0, 0, 7.03903, 8.52, 0, 2.42926 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="ground"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ground/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="sky" type="MeshInstance" parent="."]
+transform = Transform( 13.1573, 0, 0, 0, -0.999997, -0.017567, 0, 0.00249566, -7.03901, 8.52, 3.79077, 2.42926 )
+visible = false
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.237381, 0, -0.971417, 0, 1, 0, 0.971417, 0, 0.237381, 5.44631, 0, 0 )
+
+[node name="doors" type="Spatial" parent="."]
+
+[node name="bedroom" parent="doors" instance=ExtResource( 2 )]
+transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 4, 0, -1.731 )
+
+[node name="door" parent="doors/bedroom" instance=ExtResource( 1 )]
+transform = Transform( -1, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, -1, 0.742333, 0, 0.0666667 )
+
+[node name="bathroom" parent="doors" instance=ExtResource( 2 )]
+transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 4, 0, 3.14446 )
+
+[node name="door" parent="doors/bathroom" instance=ExtResource( 1 )]
+transform = Transform( -1, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, -1, 0.742333, 0, 0.0666667 )
+
+[node name="kitchen" parent="doors" instance=ExtResource( 2 )]
+transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 16.6852, 0, 3.91086 )
+
+[node name="door" parent="doors/kitchen" instance=ExtResource( 1 )]
+transform = Transform( -1, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, -1, 0.742333, 0, 0.0666667 )
+
+[node name="rooms" type="Spatial" parent="."]
+
+[node name="bedroom" parent="rooms" instance=ExtResource( 4 )]
+
+[node name="livingroom" parent="rooms" instance=ExtResource( 8 )]
+[connection signal="gotoInventory" from="Player" to="." method="_on_Player_gotoInventory"]
+[connection signal="gotoClosetZoom" from="rooms/bedroom" to="." method="_on_bedroom_gotoClosetZoom"]
+[connection signal="gotoChessBoardZoom" from="rooms/livingroom" to="." method="_on_livingroom_gotoChessBoardZoom"]
+[connection signal="gotoRemoteControlZoom" from="rooms/livingroom" to="." method="_on_livingroom_gotoRemoteControlZoom"]
