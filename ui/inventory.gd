@@ -11,12 +11,12 @@ var speed=3
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-	var vr_interface=ARVRServer.find_interface("Native mobile")
-	if vr_interface and vr_interface.initialize():
-		get_viewport().arvr=true
-		get_viewport().hdr=false
+	#var vr_interface=ARVRServer.find_interface("Native mobile")
+	#if vr_interface and vr_interface.initialize():
+#		get_viewport().arvr=true
+	#	get_viewport().hdr=false
 	
-	GlobalPlayer.addItem(GlobalItems.ID.PAPER)
+	#GlobalPlayer.addItem(GlobalItems.ID.PAPER)
 	GlobalPlayer.addItem(GlobalItems.ID.POSTIT)
 	
 		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://materials/wood.tres" type="Material" id=1]
 [ext_resource path="res://materials/black.tres" type="Material" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://models/livingroom/chess/Bishop.tscn" type="PackedScene" id=6]
 [ext_resource path="res://models/ui/info.tscn" type="PackedScene" id=7]
 [ext_resource path="res://models/livingroom/chess_board.gd" type="Script" id=8]
+[ext_resource path="res://materials/red_cloth.tres" type="Material" id=9]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -71,7 +72,7 @@ transform = Transform( 0.760565, 0, 0, 0, -1.90994e-07, -4.36943, 0, 0.760565, -
 
 [node name="king2" parent="chess_board" instance=ExtResource( 4 )]
 transform = Transform( 0.761, 0, 0, 0, -3.32644e-08, -4.369, 0, 0.761, -1.90975e-07, -14.0018, 22.7687, 13.9438 )
-material/0 = ExtResource( 3 )
+material/0 = ExtResource( 9 )
 
 [node name="Bishop" parent="chess_board" instance=ExtResource( 6 )]
 transform = Transform( 0.761, 0, 0, 0, -3.32644e-08, -4.369, 0, 0.761, -1.90975e-07, -5.9962, 23.5471, 2.03335 )
@@ -81,7 +82,7 @@ transform = Transform( 0.989369, 0, 0, 0, -1.88963e-07, -1.69586, 0, 0.989369, -
 
 [node name="Rook2" parent="chess_board" instance=ExtResource( 5 )]
 transform = Transform( 0.989369, 0, 0, 0, -1.88963e-07, -1.69586, 0, 0.989369, -1.69653e-08, -10.0427, 3.13522, 13.9851 )
-material/0 = ExtResource( 3 )
+material/0 = ExtResource( 9 )
 
 [node name="info" parent="." instance=ExtResource( 7 )]
 transform = Transform( 133.592, 0, 0, 0, 133.592, 0, 0, 0, 1, -30.7554, 28.847, 1.47562 )

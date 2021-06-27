@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://models/livingroom/cabinetTelevision.tscn" type="PackedScene" id=1]
 [ext_resource path="res://models/livingroom/tableCoffee.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://models/livingroom/chess_board.tscn" type="PackedScene" id=8]
 [ext_resource path="res://models/livingroom/remoteControl.tscn" type="PackedScene" id=9]
 [ext_resource path="res://rooms/livingroom.gd" type="Script" id=10]
+[ext_resource path="res://models/livingroom/laptop.tscn" type="PackedScene" id=11]
 
 [node name="livingroom" type="Spatial"]
 script = ExtResource( 10 )
@@ -49,5 +50,8 @@ transform = Transform( -3, 0, -2.62268e-07, 0, 3, 0, 2.62268e-07, 0, -3, 2.21417
 
 [node name="chairCushion2" parent="tableCloth" instance=ExtResource( 3 )]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 1.44884, 0, 1.82771 )
+
+[node name="laptop" parent="." instance=ExtResource( 11 )]
+transform = Transform( 2.89612, 0, 0.782626, 0, 3, 0, -0.782626, 0, 2.89612, 15.0541, 1.04168, -0.600326 )
 [connection signal="gotoChessBoardZoom" from="tableCoffee/chess_board" to="." method="_on_chess_board_gotoChessBoardZoom"]
 [connection signal="gotoRemoteControlZoom" from="tableCoffee/remoteControl" to="." method="_on_remoteControl_gotoRemoteControlZoom"]

@@ -5,6 +5,7 @@ signal gotoRemoteControlZoom
 
 func _ready():
 	defaultProps={
+		"state":CLOSED
 	}
 
 

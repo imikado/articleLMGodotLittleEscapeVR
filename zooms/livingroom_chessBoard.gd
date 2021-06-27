@@ -5,13 +5,8 @@ const SPEED= 160
 const ROTATE_SPEED=80
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	
-	var vr_interface=ARVRServer.find_interface("Native mobile")
-	if vr_interface and vr_interface.initialize():
-		get_viewport().arvr=true
-		get_viewport().hdr=false
+	GlobalGame.initCamera()
 		
 	$chess_board.disableInfo()
 
@@ -24,9 +19,11 @@ func _physics_process(delta):
 	var moving=0
 
 	if Input.is_action_pressed("ui_up"):
-		moving=1
+		#moving=1
+		pass
 	if Input.is_action_pressed("ui_down"):
-		moving=-1
+		#moving=-1
+		pass
 		
 	if Input.is_action_pressed("ui_left"):
 		rotate=1

@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://models/bedroom/padlock.tscn" type="PackedScene" id=1]
+[ext_resource path="res://models/clues/clue.tscn" type="PackedScene" id=2]
 [ext_resource path="res://models/bedroom/closet.gd" type="Script" id=3]
 [ext_resource path="res://models/bedroom/closet/doorLeft.gd" type="Script" id=4]
 [ext_resource path="res://models/bedroom/closet/doorRight.gd" type="Script" id=5]
@@ -116,3 +117,7 @@ transform = Transform( 0.0118751, 0, -0.00521405, 0, 0.00447941, 0, 0.00544661, 
 
 [node name="info" parent="." instance=ExtResource( 6 )]
 transform = Transform( -0.8, 0, -1.20797e-07, 0, 0.8, 0, 1.20797e-07, 0, -0.8, 0.200329, 0.484952, -0.0414498 )
+
+[node name="clue" parent="." instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 0.0988876, 0, 0.0988876, 0, -4.32251e-09, -0.01772, 0.459789, 0.109759 )
+text = "A=5"

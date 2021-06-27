@@ -1,11 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://ui/inventory.gd" type="Script" id=1]
 [ext_resource path="res://models/bedroom/postit.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ui/inventory/case.tscn" type="PackedScene" id=3]
 [ext_resource path="res://models/bedroom/paper.tscn" type="PackedScene" id=4]
 [ext_resource path="res://models/bedroom/bedroom_key.tscn" type="PackedScene" id=5]
-[ext_resource path="res://game_env.tres" type="Environment" id=6]
+[ext_resource path="res://scene_outFlat.tres" type="Environment" id=6]
+[ext_resource path="res://materials/metal.tres" type="Material" id=7]
+[ext_resource path="res://materials/red_cloth.tres" type="Material" id=8]
+[ext_resource path="res://materials/wall.tres" type="Material" id=9]
+[ext_resource path="res://ui/inventory/ARVROrigin.gd" type="Script" id=10]
+
+[sub_resource type="PlaneMesh" id=1]
 
 [node name="inventory" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.133455 )
@@ -27,11 +33,46 @@ visible = false
 transform = Transform( 0.450189, 0, 0, 0, 1, 0, 0, 0, 0.450189, -0.437979, 1.07649, 0.444775 )
 
 [node name="bedroom_key" parent="items" instance=ExtResource( 3 )]
+visible = false
 
 [node name="Cube" parent="items/bedroom_key" instance=ExtResource( 5 )]
 transform = Transform( 0.123211, 0, -0.0563273, 0, 0.0516344, 0, 0.0695607, 0, 0.123211, -0.495342, 1.16628, -0.389479 )
 
+[node name="bathroom_key" parent="items" instance=ExtResource( 3 )]
+visible = false
+
+[node name="Cube" parent="items/bathroom_key" instance=ExtResource( 5 )]
+transform = Transform( 0.134742, 7.68667e-10, 0.0276451, -7.66275e-09, 0.0516344, 8.52034e-10, -0.0341396, -3.09014e-10, 0.134742, -0.495342, 1.16628, -0.0185014 )
+visible = false
+material/0 = ExtResource( 7 )
+
+[node name="kitchen_key" parent="items" instance=ExtResource( 3 )]
+
+[node name="Cube" parent="items/kitchen_key" instance=ExtResource( 5 )]
+transform = Transform( 0.134742, 7.68667e-10, 0.0276451, -7.66275e-09, 0.0516344, 8.52034e-10, -0.0341396, -3.09014e-10, 0.134742, -0.495342, 1.16628, -0.0185014 )
+material/0 = ExtResource( 8 )
+
+[node name="exit_key" parent="items" instance=ExtResource( 3 )]
+
+[node name="Cube" parent="items/exit_key" instance=ExtResource( 5 )]
+transform = Transform( 0.134742, 7.68667e-10, 0.0276451, -7.66275e-09, 0.0516344, 8.52034e-10, -0.0341396, -3.09014e-10, 0.134742, -0.495342, 1.16628, -0.0185014 )
+material/0 = ExtResource( 9 )
+
 [node name="ARVROrigin" type="ARVROrigin" parent="."]
+script = ExtResource( 10 )
 
 [node name="ARVRCamera" type="ARVRCamera" parent="ARVROrigin"]
 environment = ExtResource( 6 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 67.621, 0, 0, 0, 1, 0, 0, 0, 67.621, 0, -1.80985, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 67.621, 0, 0, 0, 0.0440377, -67.5554, 0, 0.99903, 2.97788, 0, 1.517, -36.1503 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18661, 0.670351, 1.54549 )

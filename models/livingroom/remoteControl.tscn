@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://materials/black.tres" type="Material" id=1]
 [ext_resource path="res://materials/cloth.tres" type="Material" id=2]
 [ext_resource path="res://materials/metal.tres" type="Material" id=3]
 [ext_resource path="res://models/ui/info.tscn" type="PackedScene" id=4]
 [ext_resource path="res://models/livingroom/remoteControl.gd" type="Script" id=5]
+[ext_resource path="res://materials/red_cloth.tres" type="Material" id=6]
+[ext_resource path="res://materials/green.tres" type="Material" id=7]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Text.010"
@@ -50,6 +52,8 @@ surfaces/2 = {
 
 [sub_resource type="BoxShape" id=2]
 
+[sub_resource type="CylinderMesh" id=3]
+
 [node name="remoteControl" type="StaticBody"]
 script = ExtResource( 5 )
 
@@ -67,3 +71,13 @@ shape = SubResource( 2 )
 [node name="info" parent="." instance=ExtResource( 4 )]
 transform = Transform( 27.6223, 0, 0, 0, 27.6223, 0, 0, 0, 1, 0, 11.7118, 0 )
 time = 2.0
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 0.213893, 0, 0, 0, 0.0309343, 0, 0, 0, 0.213893, 0.6744, 0.523757, 0.8412 )
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 0.213893, 0, 0, 0, 0.0309343, 0, 0, 0, 0.213893, -0.724382, 0.523757, 0.8412 )
+mesh = SubResource( 3 )
+material/0 = ExtResource( 6 )

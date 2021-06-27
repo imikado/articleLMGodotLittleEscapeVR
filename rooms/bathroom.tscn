@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://models/bathroom/toilet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://models/bathroom/cabinet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://rooms/bathroom.gd" type="Script" id=3]
+[ext_resource path="res://models/bathroom/shower.tscn" type="PackedScene" id=4]
+[ext_resource path="res://models/bathroom/mirror.tscn" type="PackedScene" id=5]
+[ext_resource path="res://models/bathroom/secretBoxWithCode.tscn" type="PackedScene" id=6]
+
+[node name="bathroom" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="shower" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, 4.26337, -1.55895, 6.53325 )
+
+[node name="toilet" parent="." instance=ExtResource( 1 )]
+transform = Transform( 2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, -3.82508, 0.110495, 3.29304 )
+
+[node name="cabinet" parent="." instance=ExtResource( 2 )]
+transform = Transform( 2.02664e-07, -3, 1.31134e-07, 0, -1.31134e-07, -3, 3, 2.02664e-07, -4.35867e-15, -5.98625, 0.13299, 7.18142 )
+
+[node name="mirror" parent="." instance=ExtResource( 5 )]
+transform = Transform( 2.02664e-07, 0, -3, 0, 3, 0, 3, 0, 2.02664e-07, -3.71457, 1.8218, 6.87808 )
+
+[node name="secretBoxWithCode" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.212021, 0, -0.0533741, 0, 0.205729, 0, 0.0948725, 0, 0.11928, -2.64888, 1.25314, 3.92556 )
+rightCode = [ 4, 2, 8, 7 ]
+[connection signal="closeHotWater" from="cabinet" to="." method="_on_cabinet_closeHotWater"]
+[connection signal="openHotWater" from="cabinet" to="." method="_on_cabinet_openHotWater"]
+[connection signal="gotoSecretBoxZoom" from="secretBoxWithCode" to="." method="_on_secretBoxWithCode_gotoSecretBoxZoom"]

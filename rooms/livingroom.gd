@@ -17,6 +17,12 @@ func _ready():
 	
 	$tableCoffee/chess_board.init(room,"chessBoard")
 	
+	$cabinetTelevision/television.init(room,"tv")
+	
+	$tableCloth.init(room,"secretBox")
+	
+	$laptop.init(room,"laptop")
+	
 	pass # Replace with function body.
 
 
